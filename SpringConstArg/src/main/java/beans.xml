@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- Dependency Injection - Using Setter  
+	<bean id="stu" class="container.Student">
+		<property name="id" value="100"></property>
+		<property name="name" value="Vishnu"></property>
+	</bean>
+	-->
+	<!-- Dependency Injection - Using Constructor  -->
+	<bean id="stu" class="container.Student">
+		<constructor-arg value="92"  type="int">
+		</constructor-arg>
+		<constructor-arg value="Shri"  type="String">
+		</constructor-arg>
+	</bean>
+
+
+</beans>

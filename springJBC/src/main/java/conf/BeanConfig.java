@@ -15,5 +15,4 @@ public class BeanConfig {
 	public Student getStudent() {
 		return new Student();
 	}
-
 }
