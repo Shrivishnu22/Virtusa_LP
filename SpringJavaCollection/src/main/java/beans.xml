@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+   http://www.springframework.org/schema/context
+   http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+	<bean id="food" class="container.Food">
+		<property name="id" value="1">
+		</property>
+		<property name="name" value="Sambar"></property>
+		<property name="recipe">
+			<list>
+				<value>Dal</value>
+				<value>Water</value>
+				<value>Salt</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="book" class="container.Book">
+		<property name="id" value="2"></property>
+		<property name="book">
+			<map>
+				<entry key="Julier Ceaser" value="250"></entry>
+				<entry key="Harry Potter" value="350"></entry>
+				<entry key="Wimpy Kid" value="50"></entry>
+			</map>
+		</property>
+	</bean>
+
+	<bean id="u1" class="container.User">
+		<property name="rollno" value="92"></property>
+		<property name="name" value="Vishnu"></property>
+		<property name="dept" value="CSE"></property>
+	</bean>
+
+	<bean id="u2" class="container.User">
+		<property name="rollno" value="118"></property>
+		<property name="name" value="Vimal"></property>
+		<property name="dept" value="IT"></property>
+	</bean>
+
+	<bean id="a1" class="container.Answer">
+		<property name="answer"
+			value="Spring framework is a powerful and popular Java framework that provides a comprehensive infrastructure for developing Java applications"></property>
+		<property name="date" value="28 JAN"></property>
+	</bean>
+
+	<bean id="a2" class="container.Answer">
+		<property name="answer"
+			value="It provides a range of features such as Inversion of Control, Aspect-oriented programming, a container, data access and web application dev"></property>
+		<property name="date" value="31 JAN"></property>
+	</bean>
+
+	<bean id="q1" class="container.Question">
+		<property name="question" value="What is meant by Spring?"></property>
+		<property name="mp">
+			<map>
+				<entry key-ref="u1" value-ref="a1"></entry>
+				<entry key-ref="u2" value-ref="a2"></entry>
+			</map>
+		</property>
+	</bean>
+</beans>
