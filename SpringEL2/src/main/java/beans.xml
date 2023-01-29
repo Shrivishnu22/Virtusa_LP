@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+   http://www.springframework.org/schema/context
+   http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+	<bean id="b1" class="container.Book">
+		<property name="bookId" value="2155">
+		</property>
+		<property name="bookName" value="Java"></property>
+	</bean>
+
+	<bean id="b2" class="container.Book">
+		<property name="bookId" value="1544">
+		</property>
+		<property name="bookName" value="Node JS"></property>
+	</bean>
+	<bean id="b3" class="container.Book">
+		<property name="bookId" value="7894">
+		</property>
+		<property name="bookName" value="React JS"></property>
+	</bean>
+	<bean id="b4" class="container.Book">
+		<property name="bookId" value="6325">
+		</property>
+		<property name="bookName" value="Angular"></property>
+	</bean>
+
+	<bean id="t1" class="container.Topic">
+		<property name="bookList">
+			<list>
+				<ref bean="b1"></ref>
+				<ref bean="b2"></ref>
+			</list>
+		</property>
+
+	</bean>
+
+	<bean id="t2" class="container.Topic">
+		<property name="bookList">
+			<list>
+				<ref bean="b3"></ref>
+				<ref bean="b4"></ref>
+			</list>
+		</property>
+
+	</bean>
+
+	<bean id="l1" class="container.Library">
+		<property name="allBooks" value="#{t1.bookList}">
+		</property>
+		<property name="getFirstBook" value="#{t1.getFirstBook()}"></property>
+	</bean>
+
+	<bean id="l2" class="container.Library">
+		<property name="allBooks" value="#{t2.bookList}">
+		</property>
+		<property name="getFirstBook" value="#{t2.getFirstBook()}"></property>
+	</bean>
+</beans>
