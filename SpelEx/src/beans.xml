@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+   http://www.springframework.org/schema/context
+   http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+	<!-- Calculate a perimeter of a rectangle using getter function -->
+	
+	<bean id="recobj" class="com.sample.model.Rectangle">
+		<property name="length" value="5"></property>
+		<property name="breadth" value="2"></property>
+
+	</bean>
+	<bean id="periObj" class="com.sample.model.Perimeter">
+
+		<property name="perimeter"
+			value="#{2*(recobj.getLength()+recobj.getBreadth())}"></property>
+
+	</bean>
+	
+	
+	<!-- Mark Calculation using Logical Operators  -->
+	<bean id="markObj" class="com.sample.model.Marksheet">
+		<property name="stuName" value="Sairam"></property>
+		<property name="engMark" value="80"></property>
+		<property name="mathsMark" value="20"></property>
+		<property name="scienceMark" value="80"></property>
+
+	</bean>
+	<bean id="resObj" class="com.sample.model.Result">
+
+		<property name="hasPassed"
+			value="#{markObj.engMark>=50 and markObj.mathsMark>=50 and markObj.scienceMark>=50}"></property>
+		<property name="resultMsg"
+			value="#{markObj.engMark>=50 and markObj.mathsMark>=50 and markObj.scienceMark>=50? pass : fail }"></property>
+	</bean>
+	<bean id="pass" class="java.lang.String">
+		<constructor-arg>
+			<value>you've passed</value>
+		</constructor-arg>
+	</bean>
+	<bean id="fail" class="java.lang.String">
+		<constructor-arg>
+			<value>Unfortunately, you are failed</value>
+		</constructor-arg>
+	</bean>
+
+
+	<!-- Email Validation using Regrex [Regular Expression] -->	
+	<bean id="emailObj" class="com.sample.model.EmailValidator">
+
+		<property name="isValidEmail"
+			value="#{stuObj.email matches '[a-z0-9]+@+(.+)$'}">
+		</property>
+	</bean>
+	<bean id="stuObj" class="com.sample.model.StudentDetails">
+
+		<property name="email" value="shrivishnu22@gmail.com">
+		</property>
+	</bean>
+
+
+	<!-- Students details insertion in arrayList -->
+	<bean id="stuObj1" class="com.sample.model.Student">
+		<property name="name" value="sairam"></property>
+		<property name="marks" value="100"></property>
+	</bean>
+	<bean id="stuObj2" class="com.sample.model.Student">
+		<property name="name" value="vina"></property>
+		<property name="marks" value="40"></property>
+	</bean>
+	<bean id="stuObj3" class="com.sample.model.Student">
+		<property name="name" value="nandhini"></property>
+		<property name="marks" value="55"></property>
+	</bean>
+	<bean id="stuObj4" class="com.sample.model.Student">
+		<property name="name" value="barath"></property>
+		<property name="marks" value="50"></property>
+	</bean>
+	<bean id="stuObj5" class="com.sample.model.Student">
+		<property name="name" value="nila"></property>
+		<property name="marks" value="34"></property>
+	</bean>
+	<bean id="studentList" class="java.util.ArrayList">
+		<constructor-arg>
+			<list>
+				<ref bean="stuObj1"></ref>
+				<ref bean="stuObj2"></ref>
+				<ref bean="stuObj3"></ref>
+				<ref bean="stuObj4"></ref>
+				<ref bean="stuObj5"></ref>
+			</list>
+		</constructor-arg>
+	</bean>
+	<bean id="studentAccObj"
+		class="com.sample.model.StudentListAccessor">
+		<property name="thirdStudentInList" value="#{studentList[2]}"></property>
+		<property name="failedStudent"
+			value="#{studentList.?[marks lt 40 ]}"></property> <!-- lt means Lesser than -->
+		<property name="studentNames" value="#{studentList.![name]}"></property>
+	</bean>
+	
+
+	<!-- Maintaining data using HashMap -->
+	<bean id="telenumberMapObj" class="java.util.HashMap">
+		<constructor-arg>
+			<map>
+				<entry key="sai" value="8578951422"></entry>
+				<entry key="ram" value="9998951422"></entry>
+			</map>
+		</constructor-arg>
+	</bean>
+	<bean id="teledirObj" class="com.sample.model.TeletphoneDir">
+
+		<property name="phoneNumber"
+			value="#{telenumberMapObj['sai']}"></property>
+
+	</bean>
+
+
+
+</beans>
