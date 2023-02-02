@@ -1,1 +1,1 @@
-```Various tech stack codes can be found in this repository 😍 ```
+```Java full stack development codes can be found in this repository 😍 ```
