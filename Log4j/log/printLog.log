@@ -1,0 +1,5 @@
+2023-02-05 21:15:25 DEBUG  Access:14  -  This is debug statement
+2023-02-05 21:15:25 ERROR  Access:15  -  This is an Error statement
+2023-02-05 21:15:25 INFO   Access:16  -  This is an Info Statement
+2023-02-05 21:15:25 WARN   Access:17  -  This is a Warning Statement
+2023-02-05 21:15:25 FATAL  Access:18  -  This is a fatal statement
