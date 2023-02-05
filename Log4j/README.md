@@ -12,7 +12,7 @@ It is a Java-based logging utility, and provides a flexible and efficient way to
   - %m%n: This represents the actual log message and a newline character.
 
 ## Work Flow
--  A static logger instance named `logger` is created and it is initialized with the logger for the class "Access"
+-  A static logger instance named `logger` is created and it is initialized with the logger for the class [Access](https://github.com/Shrivishnu22/Virtusa_LP/blob/master/Log4j/src/main/java/container/Access.java)
 -  `BasicConfigurator.configure()` is used to configure the logger with a basic configuration if the properties file is not available.
 -  `PropertyConfigurator.configure("log.properties")`- The logger is configured with the properties specified in the log4j properties file "log.properties".
 -  Further lines are used to log using logger into [printLog.log](https://github.com/Shrivishnu22/Virtusa_LP/blob/master/Log4j/log/printLog.log)
